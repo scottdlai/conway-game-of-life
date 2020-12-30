@@ -137,24 +137,16 @@ const Board = ({ rows, cols, speed }: BoardProps) => {
           {simulating ? 'Stop' : 'Start'}
         </Button>
         <Button
+          disabled={simulating}
           variant='danger'
-          onClick={() => {
-            if (simulating) {
-              return;
-            }
-            clearGrid();
-          }}
+          onClick={() => clearGrid()}
         >
           Clear
         </Button>
         <Button
+          disabled={simulating}
           variant='info'
-          onClick={() => {
-            if (simulating) {
-              return;
-            }
-            randomize();
-          }}
+          onClick={() => randomize()}
         >
           Random
         </Button>
