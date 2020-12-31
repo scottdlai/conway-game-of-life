@@ -115,13 +115,14 @@ const Board = ({ rows, cols, speed }: BoardProps) => {
   const randomize = () => setGrid(grid.map((row) => row.map(randomCell)));
 
   useEffect(() => {
-    let simulation: NodeJS.Timeout;
+    const simulation = setTimeout(() => {
+      if (!simulating) {
+        return;
+      }
+      tick();
+    }, speed);
 
-    if (simulating) {
-      simulation = setInterval(() => tick(), speed);
-    }
-
-    return () => clearInterval(simulation);
+    return () => clearTimeout(simulation);
   }, [simulating, grid]);
 
   return (
