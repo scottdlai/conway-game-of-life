@@ -51,7 +51,7 @@ const ParameterForm = ({
           />
         </div>
         <div>
-          <Form.Label>Speed per tick: {speed}</Form.Label>
+          <Form.Label>Speed per tick: {speed} ms</Form.Label>
           <Form.Control
             type='range'
             value={speed}
